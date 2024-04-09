@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,12 +13,6 @@ public class Main {
 
         Leistung schulung = LeistungFabrik.erstelleLeistung("Schulung", new BigDecimal("300.00"), new NormalerAufwand(), new NiedrigeSteuer());
         rechnung.addPosition(schulung);
-
-        for (Leistung leistung : rechnung.getLeistungen()) {
-            if (leistung.getAufwand() == null) {
-                throw new IllegalStateException("Aufwand für Leistung '" + leistung.getBeschreibung() + "' ist nicht festgelegt.");
-            }
-        }
 
         System.out.println(rechnung);
     }

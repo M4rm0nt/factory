@@ -41,9 +41,9 @@ public class Leistung {
     }
 
     public BigDecimal berechneGesamtbetrag() {
-        BigDecimal betragInklAufwand = berechneAufwand();
+        BigDecimal aufwandBetrag = berechneAufwand();
         BigDecimal steuerBetrag = berechneSteuersatz();
-        return preis.add(betragInklAufwand).add(steuerBetrag).setScale(2, RoundingMode.HALF_EVEN);
+        return preis.add(aufwandBetrag).add(steuerBetrag).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override
