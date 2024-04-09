@@ -18,14 +18,6 @@ public class Rechnung {
         return gesamtsumme.setScale(2, RoundingMode.HALF_EVEN);
     }
 
-    public BigDecimal getGesamtsummeOhneAufwand() {
-        BigDecimal gesamtsumme = BigDecimal.ZERO;
-        for (Leistung leistung : leistungen) {
-            gesamtsumme = gesamtsumme.add(leistung.getPreis());
-        }
-        return gesamtsumme.setScale(2, RoundingMode.HALF_EVEN);
-    }
-
     public List<Leistung> getLeistungen() {
         return leistungen;
     }
@@ -36,8 +28,7 @@ public class Rechnung {
         for (Leistung leistung : leistungen) {
             sb.append("\t").append(leistung).append("\n");
         }
-        sb.append("Gesamtsumme ohne Aufwand: ").append(getGesamtsummeOhneAufwand()).append("\n");
-        sb.append("Gesamtsumme inklusive Aufwand: ").append(getGesamtsumme()).append("\n");
+        sb.append("Gesamtsumme der Rechnung: ").append(getGesamtsumme()).append("\n");
         return sb.toString();
     }
 }
